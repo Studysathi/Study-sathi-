@@ -1,169 +1,305 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StudySaathi</title>
+
   <title>StudySaathi - Students ka Daily Study Partner</title>
 
-<meta name="description" content="StudySaathi students ke liye useful study tools, percentage calculator, study timer, exam countdown, notes aur study planner ek hi jagah provide karta hai.">
-<link rel="stylesheet" href="style.css">
-  <meta name="google-site-verification" content="BFk52WPcRedb3v1hGB4voNA_z7W4cVCGktlYALvzbj4" />
+  <meta name="description" content="StudySaathi students ke liye useful study tools, percentage calculator, study timer, exam countdown, notes aur study planner ek hi jagah provide karta hai.">
+
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="StudySaathi - Students ka Daily Study Partner">
+  <meta property="og:description" content="Students ke liye useful study tools ek hi jagah.">
+
+  <link rel="icon" href="https://em-content.zobj.net/source/apple/391/books_1f4da.png">
+
+  <link rel="stylesheet" href="style.css">
+
+  <meta name="google-site-verification" content="BFk52WPcRedb3v1hGB4voNA_z7W4cVCGktlYALvzbj4">
 </head>
 
 <body>
-  <nav class="navbar">
-  <div class="logo">📚 StudySaathi</div>
 
-  <div class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#tools">Study Tools</a>
-    <a href="#notes">Notes</a>
-    <a href="#about">About</a>
-  </div>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">📚 StudySaathi</div>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#tools">Study Tools</a>
+      <a href="#notes">Notes</a>
+      <a href="#about">About</a>
+    </div>
   </nav>
 
+
+  <!-- Hero Section -->
   <div class="hero" id="home">
+
+    <h1>📚 StudySaathi</h1>
+
+    <p>Students ka Daily Study Partner</p>
+
+    <p class="hero-text">
+      Percentage Calculator, Study Timer, Exam Countdown, Notes aur Study Planner — sab ek hi jagah.
+    </p>
+
+  </div>
+
+
+  <!-- Study Tools -->
+  <section id="tools">
+
     <h2 class="section-title">📚 Study Tools</h2>
-<p class="section-subtitle">
-  
-  Smart tools jo aapki padhai ko easy aur productive banaye.
-</p>
-  <h1>📚 StudySaathi</h1>
-  <p>Students ka Daily Study Partner</p>
-  <p class="hero-text">
-    Padhai ko easy, smart aur productive banane ke liye useful tools ek hi jagah.
-  </p>
-  </div>
-<div class="tools-container" id="tools">
-  <div class="todo-section">
-  <h2>📝 Daily Study Tasks</h2>
 
+    <p class="section-subtitle">
+      Students ke liye Percentage Calculator, Study Timer, Exam Countdown aur aur bhi useful study tools.
+    </p>
+<div class="tool-search">
   <input
     type="text"
-    id="taskInput"
-    placeholder="Enter your study task"
+    id="toolSearch"
+    placeholder="🔎 Search a study tool..."
   >
-
-  <button id="addTask">Add Task</button>
-
-  <ul id="taskList"></ul>
-  </div>
-
-  <div class="calculator">
-    <h2>Percentage Calculator</h2>
-<p class="tool-description">Apne marks ki percentage turant calculate karein.</p>
-    <input type="number" id="total" placeholder="Total Marks">
-
-    <input type="number" id="obtained" placeholder="Obtained Marks">
-
-    <button id="calculateBtn">Calculate</button>
-
-    <h3 id="result"></h3>
-  </div>
-
-
-  <div class="timer">
-    <h2>Study Timer</h2>
-<p class="tool-description">Apni study ke liye focused timer set karein.</p>
-    <input type="number" id="minutes" placeholder="Minutes">
-
-    <h3 id="timerDisplay">00:00</h3>
-
-    <button id="startTimer">Start</button>
-    <button id="pauseTimer">Pause</button>
-    <button id="resetTimer">Reset</button>
-  </div>
-
-
-  <div class="countdown">
-    <h2>Exam Countdown</h2>
-<p class="tool-description">Exam tak kitne din bache hain, turant dekhein.</p>
-    <input type="date" id="examDate">
-
-    <button id="countdownBtn">Start Countdown</button>
-
-    <h3 id="countdownResult"></h3>
-  </div>
-
 </div>
 
-<script src="script.js"></script>
+    <div class="tools-container">
+
+      <!-- Daily Tasks -->
+      <div class="todo-section">
+
+        <h2>📝 Daily Study Tasks</h2>
+
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Enter your study task"
+        >
+
+        <button id="addTask">Add Task</button>
+
+        <ul id="taskList"></ul>
+<div class="progress-box">
+  <p>📊 Today's Progress</p>
+
+  <div class="progress-bar">
+    <div id="progressFill"></div>
+  </div>
+
+  <p id="progressText">0% Complete</p>
+</div>
+       <div class="streak-box">
+  <div class="streak-icon">🔥</div>
+  <div>
+    <p class="streak-title">Study Streak</p>
+    <h3 id="streakCount">0 Days</h3>
+    <p id="streakMessage">Aaj padhai shuru karo! 📚</p>
+  </div>
+       </div> 
+      </div>
+
+
+      <!-- Percentage Calculator -->
+      <div class="calculator">
+
+        <h2>Percentage Calculator</h2>
+
+        <p class="tool-description">
+          Apne marks ki percentage turant calculate karein.
+        </p>
+
+        <input
+          type="number"
+          id="total"
+          placeholder="Total Marks"
+        >
+
+        <input
+          type="number"
+          id="obtained"
+          placeholder="Obtained Marks"
+        >
+
+        <button id="calculateBtn">Calculate</button>
+
+        <h3 id="result"></h3>
+
+      </div>
+
+
+      <!-- Study Timer -->
+      <div class="timer">
+
+        <h2>Study Timer</h2>
+
+        <p class="tool-description">
+          Apni study ke liye focused timer set karein.
+        </p>
+
+        <input
+          type="number"
+          id="minutes"
+          placeholder="Minutes"
+        >
+
+        <h3 id="timerDisplay">00:00</h3>
+
+        <button id="startTimer">Start</button>
+        <button id="pauseTimer">Pause</button>
+        <button id="resetTimer">Reset</button>
+
+      </div>
+
+
+      <!-- Exam Countdown -->
+      <div class="countdown">
+
+        <h2>Exam Countdown</h2>
+
+        <p class="tool-description">
+          Exam tak kitne din bache hain, turant dekhein.
+        </p>
+
+        <input
+          type="date"
+          id="examDate"
+        >
+
+        <button id="countdownBtn">Start Countdown</button>
+
+        <h3 id="countdownResult"></h3>
+
+      </div>
+
+
+      <!-- Quick Notes -->
+      <div class="notes-section" id="notes">
+
+        <h2>📝 Quick Notes</h2>
+
+        <textarea
+          id="notesInput"
+          placeholder="Yahan apni study notes likho..."
+        ></textarea>
+
+        <button id="saveNotes">Save Notes</button>
+
+        <p id="notesMessage"></p>
+
+      </div>
+
+
+      <!-- Study Planner -->
+      <div class="planner-section">
+
+        <h2>📅 Study Planner</h2>
+
+        <input
+          type="text"
+          id="subjectInput"
+          placeholder="Subject"
+        >
+
+        <input
+          type="text"
+          id="plannerTask"
+          placeholder="What do you want to study?"
+        >
+
+        <button id="addPlan">Add Plan</button>
+
+        <ul id="planList"></ul>
+
+      </div>
+
+
+      <!-- CGPA Calculator -->
+      <div class="cgpa-section">
+
+        <h2>📊 CGPA Calculator</h2>
+
+        <input
+          type="number"
+          id="subjectCount"
+          placeholder="Number of Subjects"
+          min="1"
+          max="20"
+        >
+
+        <p class="cgpa-info">
+          Grade Point डालकर CGPA calculate करें
+        </p>
+
+        <button id="createSubjects">Add Subjects</button>
+
+        <div id="subjectInputs"></div>
+
+        <button id="calculateCGPA">Calculate CGPA</button>
+
+        <h3 id="cgpaResult"></h3>
+
+      </div>
+
+
+      <!-- Pomodoro Timer -->
+      <div class="pomodoro-section">
+
+        <h2>🍅 Pomodoro Study Timer</h2>
+
+        <p>25 मिनट पढ़ाई + 5 मिनट ब्रेक</p>
+
+        <h3 id="pomodoroDisplay">25:00</h3>
+
+        <button id="startPomodoro">Start Study</button>
+        <button id="pausePomodoro">Pause</button>
+        <button id="resetPomodoro">Reset</button>
+
+        <p id="pomodoroStatus">
+          Ready to Study 📚
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+
+    <h2>📚 About StudySaathi</h2>
+
+    <p>
+      StudySaathi students ke liye banaya gaya ek simple study platform hai,
+      jahan padhai se jude useful tools ek hi jagah milte hain.
+    </p>
+
+    <p>
+      Yahan aap percentage calculate kar sakte hain, study timer use kar sakte hain,
+      exam countdown dekh sakte hain, daily tasks manage kar sakte hain,
+      quick notes save kar sakte hain aur study planning kar sakte hain.
+    </p>
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+
+    <p>© 2026 StudySaathi</p>
+
+    <p>Students ka Daily Study Partner 📚</p>
+
+  </footer>
+
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
 </body>
+
 </html>
-<div class="notes-section" id="notes">
-  <h2>📝 Quick Notes</h2>
-
-  <textarea
-    id="notesInput"
-    placeholder="Yahan apni study notes likho..."
-  ></textarea>
-
-  <button id="saveNotes">Save Notes</button>
-
-  <p id="notesMessage"></p>
-</div>
-<div class="planner-section">
-  <h2>📅 Study Planner</h2>
-
-  <input
-    type="text"
-    id="subjectInput"
-    placeholder="Subject"
-  >
-
-  <input
-    type="text"
-    id="plannerTask"
-    placeholder="What do you want to study?"
-  >
-
-  <button id="addPlan">Add Plan</button>
-
-  <ul id="planList"></ul>
-</div>
-<div class="cgpa-section">
-  <h2>📊 CGPA Calculator</h2>
-
-  <input type="number" id="subjectCount" placeholder="Number of Subjects" min="1" max="20">
-<p class="cgpa-info">
-  Grade Point डालकर CGPA calculate करें
-</p>
-  <button id="createSubjects">Add Subjects</button>
-
-  <div id="subjectInputs"></div>
-
-  <button id="calculateCGPA">Calculate CGPA</button>
-
-  <h3 id="cgpaResult"></h3>
-</div>
-<div class="pomodoro-section">
-  <h2>🍅 Pomodoro Study Timer</h2>
-
-  <p>25 मिनट पढ़ाई + 5 मिनट ब्रेक</p>
-
-  <h3 id="pomodoroDisplay">25:00</h3>
-
-  <button id="startPomodoro">Start Study</button>
-  <button id="pausePomodoro">Pause</button>
-  <button id="resetPomodoro">Reset</button>
-
-  <p id="pomodoroStatus">Ready to Study 📚</p>
-</div>
-<section class="about-section" id="about">
-  <h2>📚 About StudySaathi</h2>
-
-  <p>
-    StudySaathi students ke liye banaya gaya ek simple study platform hai,
-    jahan padhai se jude useful tools ek hi jagah milte hain.
-  </p>
-
-  <p>
-    Yahan aap percentage calculate kar sakte hain, study timer use kar sakte hain,
-    exam countdown dekh sakte hain, daily tasks manage kar sakte hain aur quick notes save kar sakte hain.
-  </p>
-</section>
-<footer class="footer">
-  <p>© 2026 StudySaathi</p>
-  <p>Students ka Daily Study Partner 📚</p>
-</footer>
