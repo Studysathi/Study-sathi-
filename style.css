@@ -545,3 +545,6 @@ textarea:focus {
   color: #555;
   margin-bottom: 15px;
 }
+.section-subtitle {
+  color: white;
+}
