@@ -545,6 +545,524 @@ textarea:focus {
   color: #555;
   margin-bottom: 15px;
 }
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin: 35px 0 5px;
+  color: #333;
+}
+
 .section-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  margin: 0 auto 25px;
+  line-height: 1.5;
+}
+.tools-container > div {
+  box-sizing: border-box;
+  width: 100%;
+}
+/* ===== StudySaathi Modern Navbar ===== */
+
+.navbar {
+  max-width: 1100px;
+  margin: 0 auto 20px;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e5e7ff;
+  border-radius: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 18px rgba(70, 60, 150, 0.10);
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #4f46e5;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1f2937;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #5b4ee8;
+}
+
+
+/* ===== Modern Hero ===== */
+
+.hero {
+  max-width: 1100px;
+  min-height: 300px;
+  margin: 0 auto 45px;
+  padding: 55px 45px;
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    135deg,
+    #f5f7ff 0%,
+    #ffffff 45%,
+    #e9e5ff 100%
+  );
+
+  color: #172554;
+  border: 1px solid #ddd9ff;
+  border-radius: 26px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+
+  box-shadow: 0 12px 30px rgba(70, 60, 150, 0.10);
+}
+
+.hero::after {
+  content: "📚  🎓  ⏰";
+  position: absolute;
+  right: 45px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-size: 62px;
+  letter-spacing: 12px;
+  opacity: 0.85;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin: 0 0 8px;
+  color: #111827;
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1::first-letter {
+  color: #4f46e5;
+}
+
+.hero > p:not(.hero-text) {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 5px 0 12px;
+  color: #4f46e5;
+  position: relative;
+  z-index: 1;
+}
+
+.hero .hero-text {
+  max-width: 560px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #374151;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ===== Mobile Hero ===== */
+
+@media (max-width: 700px) {
+
+  .navbar {
+    padding: 14px 16px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 330px;
+    padding: 40px 24px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero::after {
+    position: static;
+    transform: none;
+    font-size: 42px;
+    margin-top: 25px;
+    letter-spacing: 5px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero > p:not(.hero-text) {
+    font-size: 20px;
+  }
+
+  .hero .hero-text {
+    font-size: 15px;
+  }
+}
+/* ===== Modern Study Tool Cards ===== */
+
+#tools {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 38px;
+  color: #111827;
+  margin: 20px 0 5px;
+}
+
+.section-subtitle {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  color: #667085;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.tools-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.tools-container > div {
+  width: 100%;
+  min-height: 250px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 22px 18px;
+  background: #ffffff;
+  border: 1px solid #e8eaf5;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(70, 60, 150, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tools-container > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(70, 60, 150, 0.13);
+}
+
+.tools-container h2 {
+  color: #172033;
+  font-size: 20px;
+  margin-top: 0;
+}
+
+@media (max-width: 950px) {
+  .tools-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .tools-container {
+    grid-template-columns: 1fr;
+  }
+
+  .tools-container > div {
+    min-height: auto;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+}
+/* ===== Modern Tool Inputs & Buttons ===== */
+
+.tools-container input,
+.tools-container textarea {
+  box-sizing: border-box;
+  background: #f8f9ff;
+  border: 1px solid #e1e4f2;
+  transition: 0.2s ease;
+}
+
+.tools-container input:focus,
+.tools-container textarea:focus {
+  background: #ffffff;
+  border-color: #6a5acd;
+}
+
+.tools-container button {
+  background: #6a5acd;
   color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: 0.2s ease;
+}
+
+.tools-container button:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.tools-container button:active {
+  transform: scale(0.98);
+}
+
+.tool-description {
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.5;
+}
+/* ===== Professional Tool Card Polish ===== */
+
+.tools-container > div {
+  position: relative;
+  overflow: hidden;
+}
+
+.tools-container > div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #6a5acd, #8b7cf6);
+}
+
+.tools-container h2 {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.tools-container input,
+.tools-container textarea,
+.tools-container select {
+  width: 100%;
+  padding: 11px 12px;
+  margin: 6px 0;
+  border-radius: 9px;
+  font-size: 14px;
+  outline: none;
+}
+
+.tools-container button {
+  width: 100%;
+  padding: 11px 14px;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.tools-container p {
+  line-height: 1.5;
+}
+/* ===== Quick Notes Upgrade ===== */
+
+#notes {
+  background: linear-gradient(135deg, #ffffff, #f7f5ff);
+}
+
+#notes textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+#notes button {
+  margin-top: 10px;
+}
+
+#notes p {
+  color: #667085;
+  font-size: 14px;
+}
+/* ===== To-Do List Upgrade ===== */
+
+#todo {
+  background: linear-gradient(135deg, #ffffff, #f5f8ff);
+}
+
+#todo input {
+  margin-bottom: 8px;
+}
+
+#todo ul {
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+#todo li {
+  list-style: none;
+  background: #f8f9ff;
+  border: 1px solid #e5e7f2;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 7px 0;
+}
+/* ===== Study Planner Upgrade ===== */
+
+#planner {
+  background: linear-gradient(135deg, #ffffff, #f7f6ff);
+}
+
+#planner input,
+#planner textarea,
+#planner select {
+  margin-bottom: 8px;
+}
+
+#planner button {
+  margin-top: 5px;
+}
+
+#planner p {
+  color: #667085;
+  font-size: 14px;
+}
+/* ===== Daily Progress Tracker ===== */
+
+.progress-box {
+  margin-top: 18px;
+  padding: 14px;
+  background: #f8f9ff;
+  border: 1px solid #e5e7f2;
+  border-radius: 12px;
+}
+
+.progress-box p {
+  margin: 6px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#progressFill {
+  width: 0%;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #6a5acd, #8b7cf6);
+  transition: width 0.4s ease;
+}
+
+#progressText {
+  text-align: center;
+  color: #6a5acd;
+}
+/* ===== Study Streak ===== */
+
+.streak-box {
+  margin-top: 15px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #fff7ed, #ffffff);
+  border: 1px solid #fed7aa;
+  border-radius: 14px;
+}
+
+.streak-icon {
+  font-size: 32px;
+}
+
+.streak-title {
+  margin: 0;
+  font-size: 13px;
+  color: #667085;
+}
+
+.streak-box h3 {
+  margin: 3px 0;
+  color: #ea580c;
+}
+
+.streak-box p:last-child {
+  margin: 0;
+  font-size: 13px;
+  color: #667085;
+}
+/* ===== Tool Search ===== */
+
+.tool-search {
+  max-width: 550px;
+  margin: 0 auto 25px;
+}
+
+.tool-search input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 16px;
+  border: 1px solid #e1e4f2;
+  border-radius: 12px;
+  background: #ffffff;
+  font-size: 15px;
+  outline: none;
+  box-shadow: 0 4px 12px rgba(70, 60, 150, 0.06);
+  transition: 0.2s ease;
+}
+
+.tool-search input:focus {
+  border-color: #6a5acd;
+  box-shadow: 0 6px 16px rgba(106, 90, 205, 0.12);
+}
+/* ===== Mobile Navbar Upgrade ===== */
+
+@media (max-width: 600px) {
+
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 12px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-links a {
+    padding: 7px 10px;
+    background: #f5f6ff;
+    border-radius: 8px;
+    font-size: 12px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
 }
