@@ -1066,3 +1066,331 @@ textarea:focus {
   }
 
 }
+/* ===== Study Tools Subtitle Fix ===== */
+
+.section-subtitle {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  color: #667085 !important;
+  background: transparent;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 auto 30px;
+  padding: 0 15px;
+  visibility: visible;
+  opacity: 1;
+}
+/* ===== New Feature Card Design ===== */
+
+.progress-box {
+  background: #f3f7ff;
+  border: 1px solid #dbe7ff;
+}
+
+.streak-box {
+  background: #fff8ed;
+  border: 1px solid #ffe0b2;
+}
+
+.tool-search {
+  background: #f7f5ff;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid #e5e0ff;
+  box-sizing: border-box;
+}
+
+.tool-search input {
+  margin: 0;
+  background: #ffffff;
+}
+
+.streak-icon {
+  background: #fff0d9;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+/* ===== Premium Study Tool Cards ===== */
+
+.tools-container > div {
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(70, 60, 150, 0.09);
+  border: 1px solid #e8eaf5;
+}
+
+.tools-container > div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(70, 60, 150, 0.14);
+}
+
+.tools-container h2 {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.tools-container button {
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.tools-container input,
+.tools-container textarea {
+  border-radius: 10px;
+}
+/* ===== Individual Study Tool Themes ===== */
+
+.todo-section {
+  background: linear-gradient(135deg, #ffffff, #f2f7ff) !important;
+}
+
+.calculator {
+  background: linear-gradient(135deg, #ffffff, #f5f3ff) !important;
+}
+
+.timer {
+  background: linear-gradient(135deg, #ffffff, #f0f9ff) !important;
+}
+
+.countdown {
+  background: linear-gradient(135deg, #ffffff, #f5f5ff) !important;
+}
+
+.notes-section {
+  background: linear-gradient(135deg, #ffffff, #fffaf0) !important;
+}
+
+.planner-section {
+  background: linear-gradient(135deg, #ffffff, #f2fff8) !important;
+}
+
+.cgpa-section {
+  background: linear-gradient(135deg, #ffffff, #f3f7ff) !important;
+}
+
+.pomodoro-section {
+  background: linear-gradient(135deg, #ffffff, #fff4f1) !important;
+}
+/* ===== Task & Planner Card Fix ===== */
+
+.todo-section {
+  background: linear-gradient(135deg, #ffffff, #f2f7ff) !important;
+}
+
+.planner-section {
+  background: linear-gradient(135deg, #ffffff, #f2fff8) !important;
+}
+
+.todo-section ul,
+.planner-section ul {
+  padding-left: 0;
+}
+
+.todo-section li,
+.planner-section li {
+  list-style: none;
+}
+/* ===== Final Visual Polish ===== */
+
+.section-title {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  max-width: 720px;
+}
+
+.tools-container {
+  margin-top: 10px;
+}
+
+.tools-container > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.tools-container > div button:last-child {
+  margin-bottom: 0;
+}
+
+.about-section {
+  max-width: 1100px;
+  margin: 55px auto 30px;
+  padding: 35px 30px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #ffffff, #f6f5ff);
+  border: 1px solid #e5e2ff;
+  border-radius: 22px;
+  box-shadow: 0 8px 24px rgba(70, 60, 150, 0.08);
+}
+
+.about-section h2 {
+  color: #4f46e5;
+}
+
+.footer {
+  margin-top: 35px;
+  padding: 25px 15px;
+  text-align: center;
+  color: #667085;
+}
+/* ===== Study Tools Subtitle Final Fix ===== */
+
+#tools .section-subtitle {
+  display: block !important;
+  width: 100% !important;
+  max-width: 750px !important;
+  margin: 0 auto 28px !important;
+  padding: 0 16px !important;
+  box-sizing: border-box !important;
+
+  color: #667085 !important;
+  background: transparent !important;
+
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  text-align: center !important;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+@media (max-width: 600px) {
+  #tools .section-subtitle {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    padding: 0 12px !important;
+  }
+}
+/* ===== Study Tools Subtitle Clear Color ===== */
+
+#tools .section-subtitle {
+  color: #000000 !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+/* ===== Website Share Section ===== */
+
+.share-section {
+  max-width: 1100px;
+  margin: 35px auto;
+  padding: 30px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff, #f7f5ff);
+  border: 1px solid #e5e2ff;
+  border-radius: 22px;
+  box-shadow: 0 8px 24px rgba(70, 60, 150, 0.08);
+  box-sizing: border-box;
+}
+
+.share-section h2 {
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.share-section p {
+  color: #667085;
+  margin-bottom: 20px;
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.share-btn {
+  display: inline-block;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.whatsapp {
+  background: #25D366;
+}
+
+.facebook {
+  background: #1877F2;
+}
+
+.instagram {
+  background: #E1306C;
+}
+
+.share-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+/* ===== Website Share Section ===== */
+
+.share-section {
+  max-width: 1100px;
+  margin: 35px auto;
+  padding: 30px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff, #f7f5ff);
+  border: 1px solid #e5e2ff;
+  border-radius: 22px;
+  box-shadow: 0 8px 24px rgba(70, 60, 150, 0.08);
+  box-sizing: border-box;
+}
+
+.share-section h2 {
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.share-section p {
+  color: #667085;
+  margin-bottom: 20px;
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.share-btn {
+  display: inline-block;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.whatsapp {
+  background: #25D366;
+}
+
+.facebook {
+  background: #1877F2;
+}
+
+.instagram {
+  background: #E1306C;
+}
+
+.share-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
