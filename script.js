@@ -92,46 +92,167 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  // To-Do List
-  document.getElementById("addTask").addEventListener("click", function () {
-    const taskInput = document.getElementById("taskInput");
-    const taskText = taskInput.value.trim();
+// To-Do List + Progress Tracker
 
-    if (taskText === "") {
-      alert("Please enter a task");
-      return;
-    }
+function saveTasks() {
+  const tasks = [];
 
-    const li = document.createElement("li");
-
-    const taskName = document.createElement("span");
-    taskName.textContent = "📚 " + taskText;
-
-    const doneBtn = document.createElement("button");
-    doneBtn.textContent = "Done";
-
-    doneBtn.onclick = function () {
-      taskName.style.textDecoration = "line-through";
-      taskName.textContent = "✅ " + taskText;
-      doneBtn.remove();
-    };
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete";
-
-    deleteBtn.onclick = function () {
-      li.remove();
-    };
-
-    li.appendChild(taskName);
-    li.appendChild(doneBtn);
-    li.appendChild(deleteBtn);
-
-    document.getElementById("taskList").appendChild(li);
-
-    taskInput.value = "";
+  document.querySelectorAll("#taskList li").forEach(function (li) {
+    const taskName = li.dataset.task;
+    
+    tasks.push({
+      text: taskName,
+      completed: li.classList.contains("completed")
+    });
   });
 
+  localStorage.setItem("studySaathiTasks", JSON.stringify(tasks));
+}
+
+
+function updateProgress() {
+  const tasks = document.querySelectorAll("#taskList li");
+  const completedTasks = document.querySelectorAll("#taskList li.completed");
+
+  const totalTasks = tasks.length;
+  const completed = completedTasks.length;
+
+  let progress = 0;
+
+  if (totalTasks > 0) {
+    progress = Math.round((completed / totalTasks) * 100);
+  }
+
+  document.getElementById("progressFill").style.width = progress + "%";
+
+  document.getElementById("progressText").textContent =
+    progress + "% Complete";
+}
+
+
+function createTask(taskText, isCompleted = false) {
+  const li = document.createElement("li");
+
+  li.dataset.task = taskText;
+
+  const taskName = document.createElement("span");
+  taskName.textContent = isCompleted
+    ? "✅ " + taskText
+    : "📚 " + taskText;
+
+  const doneBtn = document.createElement("button");
+  doneBtn.textContent = "Done";
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";
+
+
+  if (isCompleted) {
+    li.classList.add("completed");
+    taskName.style.textDecoration = "line-through";
+  }
+
+
+  doneBtn.onclick = function () {
+    li.classList.add("completed");
+
+    taskName.style.textDecoration = "line-through";
+    taskName.textContent = "✅ " + taskText;
+
+    doneBtn.remove();
+
+    saveTasks();
+    updateProgress();
+  };
+
+
+  deleteBtn.onclick = function () {
+    li.remove();
+
+    saveTasks();
+    updateProgress();
+  };
+
+
+  li.appendChild(taskName);
+
+  if (!isCompleted) {
+    li.appendChild(doneBtn);
+  }
+
+  li.appendChild(deleteBtn);
+
+  document.getElementById("taskList").appendChild(li);
+}
+
+
+function loadTasks() {
+  const savedTasks = JSON.parse(
+    localStorage.getItem("studySaathiTasks") || "[]"
+  );
+
+  savedTasks.forEach(function (task) {
+    createTask(task.text, task.completed);
+  });
+
+  updateProgress();
+}
+
+
+document.getElementById("addTask").addEventListener("click", function () {
+  const taskInput = document.getElementById("taskInput");
+
+  const taskText = taskInput.value.trim();
+
+  if (taskText === "") {
+    alert("Please enter a task");
+    return;
+  }
+
+  createTask(taskText);
+
+  taskInput.value = "";
+
+  saveTasks();
+  updateProgress();
+});
+
+
+loadTasks();
+// Study Streak
+
+function updateStreak() {
+  const today = new Date().toDateString();
+
+  const lastStudyDate = localStorage.getItem("studySaathiLastStudy");
+  let streak = Number(localStorage.getItem("studySaathiStreak")) || 0;
+
+  if (lastStudyDate === today) {
+    // Aaj ka streak already count ho chuka hai
+  } else {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    if (lastStudyDate === yesterday.toDateString()) {
+      streak++;
+    } else {
+      streak = 1;
+    }
+
+    localStorage.setItem("studySaathiStreak", streak);
+    localStorage.setItem("studySaathiLastStudy", today);
+  }
+
+  document.getElementById("streakCount").textContent =
+    streak + (streak === 1 ? " Day" : " Days");
+
+  document.getElementById("streakMessage").textContent =
+    streak > 1
+      ? "Great! Keep studying 🔥"
+      : "Aaj padhai shuru karo! 📚";
+}
+
+updateStreak();
 
   // Quick Notes
   const notesInput = document.getElementById("notesInput");
@@ -160,24 +281,60 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // Study Planner
-  document.getElementById("addPlan").addEventListener("click", function () {
-    const subject = document.getElementById("subjectInput").value.trim();
-    const task = document.getElementById("plannerTask").value.trim();
 
-    if (subject === "" || task === "") {
-      alert("Please enter subject and study task");
-      return;
-    }
+function savePlans() {
+  const plans = [];
 
-    const li = document.createElement("li");
-
-    li.textContent = "📚 " + subject + " — " + task;
-
-    document.getElementById("planList").appendChild(li);
-
-    document.getElementById("subjectInput").value = "";
-    document.getElementById("plannerTask").value = "";
+  document.querySelectorAll("#planList li").forEach(function (li) {
+    plans.push(li.dataset.plan);
   });
+
+  localStorage.setItem("studySaathiPlans", JSON.stringify(plans));
+}
+
+
+function createPlan(planText) {
+  const li = document.createElement("li");
+
+  li.dataset.plan = planText;
+  li.textContent = "📚 " + planText;
+
+  document.getElementById("planList").appendChild(li);
+}
+
+
+function loadPlans() {
+  const savedPlans = JSON.parse(
+    localStorage.getItem("studySaathiPlans") || "[]"
+  );
+
+  savedPlans.forEach(function (plan) {
+    createPlan(plan);
+  });
+}
+
+
+document.getElementById("addPlan").addEventListener("click", function () {
+  const subject = document.getElementById("subjectInput").value.trim();
+  const task = document.getElementById("plannerTask").value.trim();
+
+  if (subject === "" || task === "") {
+    alert("Please enter subject and study task");
+    return;
+  }
+
+  const planText = subject + " — " + task;
+
+  createPlan(planText);
+
+  document.getElementById("subjectInput").value = "";
+  document.getElementById("plannerTask").value = "";
+
+  savePlans();
+});
+
+
+loadPlans();
 
 
   // CGPA Calculator
@@ -297,5 +454,22 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   updatePomodoroDisplay();
+/* ===== Tool Search ===== */
 
+const toolSearch = document.getElementById("toolSearch");
+const toolCards = document.querySelectorAll(".tools-container > div");
+
+toolSearch.addEventListener("input", function () {
+  const searchText = toolSearch.value.toLowerCase().trim();
+
+  toolCards.forEach(function (card) {
+    const toolName = card.textContent.toLowerCase();
+
+    if (toolName.includes(searchText)) {
+      card.style.display = "";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
 });
