@@ -1394,3 +1394,104 @@ textarea:focus {
   transform: translateY(-2px);
   opacity: 0.9;
 }
+/* ===== About StudySaathi Premium Design ===== */
+
+.about-section {
+  max-width: 1100px;
+  margin: 55px auto 30px;
+  padding: 38px 32px;
+  box-sizing: border-box;
+
+  background: linear-gradient(135deg, #ffffff 0%, #f5f3ff 100%);
+  border: 1px solid #e2defc;
+  border-radius: 22px;
+
+  box-shadow: 0 10px 28px rgba(70, 60, 150, 0.09);
+
+  text-align: center;
+}
+
+.about-section h2 {
+  margin: 0 0 15px;
+  color: #4f46e5;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.about-section p {
+  max-width: 800px;
+  margin: 10px auto;
+  color: #344054;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.about-section p:last-child {
+  margin-bottom: 0;
+}
+/* ===== Compact Study Tool Cards ===== */
+
+.tools-container > div {
+  min-height: 210px !important;
+  padding: 18px 16px !important;
+}
+
+.tools-container h2 {
+  font-size: 18px !important;
+  margin-bottom: 9px !important;
+}
+
+.tools-container input,
+.tools-container textarea {
+  padding: 9px 10px !important;
+  margin: 4px 0 !important;
+}
+
+.tools-container button {
+  padding: 9px 12px !important;
+  margin-top: 6px !important;
+}
+
+.tool-description {
+  margin: 6px 0 !important;
+  font-size: 13px !important;
+}
+/* ===== Task Box Darker Color ===== */
+
+.todo-section li {
+  background: #e5e9f5 !important;
+  border: 1px solid #c8cee0 !important;
+}
+/* ===== Darker Study Tool Card Colors ===== */
+
+.todo-section {
+  background: linear-gradient(135deg, #dbe7ff, #eef2ff) !important;
+}
+
+.calculator {
+  background: linear-gradient(135deg, #e3ddff, #f0edff) !important;
+}
+
+.timer {
+  background: linear-gradient(135deg, #d8f0ff, #e9f7ff) !important;
+}
+
+.countdown {
+  background: linear-gradient(135deg, #dddfff, #eeeefe) !important;
+}
+
+.notes-section {
+  background: linear-gradient(135deg, #fff0cf, #fff7e5) !important;
+}
+
+.planner-section {
+  background: linear-gradient(135deg, #d9f5e7, #ecfbf3) !important;
+}
+
+.cgpa-section {
+  background: linear-gradient(135deg, #dce9ff, #edf4ff) !important;
+}
+
+.pomodoro-section {
+  background: linear-gradient(135deg, #ffe0d8, #fff0ec) !important;
+}
