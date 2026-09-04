@@ -473,3 +473,17 @@ toolSearch.addEventListener("input", function () {
   });
 });
 });
+function shareStudySaathi() {
+  const shareData = {
+    title: "StudySaathi",
+    text: "StudySaathi - Students ka Daily Study Partner 📚",
+    url: "https://studysathi.github.io/Study-sathi-/"
+  };
+
+  if (navigator.share) {
+    navigator.share(shareData);
+  } else {
+    navigator.clipboard.writeText(shareData.url);
+    alert("Website link copy ho gaya! Ab Instagram ya kisi bhi app par share kar sakte ho.");
+  }
+}
