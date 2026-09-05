@@ -1495,3 +1495,23 @@ textarea:focus {
 .pomodoro-section {
   background: linear-gradient(135deg, #ffe0d8, #fff0ec) !important;
 }
+/* ===== StudySaathi Header Logo ===== */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.logo span {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1e1b4b;
+}
