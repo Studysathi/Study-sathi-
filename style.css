@@ -1519,10 +1519,10 @@ textarea:focus {
 /* ===== Fix Navbar Logo Size ===== */
 
 .navbar .logo img {
-  width: 36px !important;
-  height: 36px !important;
-  max-width: 36px !important;
-  max-height: 36px !important;
+  width: 44px !important;
+  height: 44px !important;
+  max-width: 44px !important;
+  max-height: 44px !important;
   object-fit: contain !important;
   border-radius: 50% !important;
   display: block;
