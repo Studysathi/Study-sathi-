@@ -2278,3 +2278,49 @@ textarea:focus {
     padding: 10px 6px;
   }
 }
+/* ===== BUTTONS BACK TO VERTICAL ===== */
+
+.tools-container button {
+  width: 100% !important;
+  display: block !important;
+  margin-top: 10px !important;
+}
+
+/* Pomodoro buttons one below another */
+#startPomodoro,
+#pausePomodoro,
+#resetPomodoro {
+  width: 100% !important;
+  display: block !important;
+  margin: 10px 0 0 0 !important;
+}
+/* ===== ABOUT STUDYSAATHI IMAGE SECTION ===== */
+
+.about-image-section {
+  width: 100%;
+  max-width: 1500px;
+  margin: 40px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.about-image-section img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+
+  .about-image-section {
+    margin: 25px auto;
+    padding: 0 10px;
+  }
+
+  .about-image-section img {
+    border-radius: 14px;
+  }
+
+}
