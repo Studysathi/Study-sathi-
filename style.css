@@ -2172,3 +2172,109 @@ textarea:focus {
   }
 
 }
+/* ===== Daily Study Tasks Card Fix ===== */
+
+.tools-container .todo-section {
+  display: flex;
+  flex-direction: column;
+  min-height: 390px;
+}
+
+.tools-container .todo-section h2 {
+  margin-bottom: 14px;
+}
+
+.tools-container .todo-section input {
+  box-sizing: border-box;
+}
+
+.tools-container .todo-section #addTask {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 8px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* Keep task card content neatly spaced */
+.tools-container .todo-section #taskList {
+  margin: 12px 0;
+  padding-left: 0;
+}
+
+/* Progress section */
+.tools-container .todo-section .progress-box {
+  margin-top: 8px;
+}
+
+/* Streak section stays neatly inside the card */
+.tools-container .todo-section .streak-box {
+  margin-top: auto;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .tools-container .todo-section {
+    min-height: auto;
+  }
+}
+/* ===== STUDY TOOLS BUTTON & CARD POLISH ===== */
+
+/* Tool cards */
+.tools-container > div {
+  box-sizing: border-box;
+}
+
+/* All tool buttons */
+.tools-container button {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 16px;
+  margin-top: 10px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/* Better spacing for cards */
+.tools-container input,
+.tools-container textarea {
+  box-sizing: border-box;
+}
+
+/* Pomodoro: Start + Pause side-by-side */
+.tools-container .pomodoro-section {
+  position: relative;
+}
+
+#startPomodoro,
+#pausePomodoro {
+  width: calc(50% - 6px) !important;
+  display: inline-block;
+}
+
+#startPomodoro {
+  margin-right: 8px;
+}
+
+/* Reset stays full width */
+#resetPomodoro {
+  width: 100% !important;
+}
+
+/* Daily Tasks card */
+.tools-container .todo-section {
+  box-sizing: border-box;
+}
+
+/* Mobile: Pomodoro buttons also remain balanced */
+@media (max-width: 500px) {
+  #startPomodoro,
+  #pausePomodoro {
+    width: calc(50% - 5px) !important;
+    font-size: 13px;
+    padding: 10px 6px;
+  }
+}
