@@ -2755,3 +2755,217 @@ textarea:focus {
   }
 
 }
+/* =========================================
+   ADVANCED STUDY HUB - PROFESSIONAL DESIGN
+========================================= */
+
+
+/* Back Link */
+
+.advanced-back {
+  max-width: 1100px;
+  margin: 25px auto 0;
+  padding: 0 20px;
+}
+
+.advanced-back a {
+  color: #5145a5;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.advanced-back a:hover {
+  text-decoration: underline;
+}
+
+
+/* Header */
+
+.advanced-header {
+  text-align: center;
+  padding: 35px 20px 25px;
+}
+
+.advanced-header-icon {
+  font-size: 45px;
+  margin-bottom: 8px;
+}
+
+.advanced-header h1 {
+  margin: 0;
+  color: #29264d;
+  font-size: 38px;
+}
+
+.advanced-header p {
+  margin: 12px auto 0;
+  max-width: 600px;
+  color: #667085;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+
+/* Features Section */
+
+.advanced-features {
+  padding: 20px 30px 60px;
+}
+
+.advanced-features h2 {
+  text-align: center;
+  color: #2d2b55;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+
+/* Cards Container */
+
+.advanced-container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+
+/* Individual Card */
+
+.advanced-container .advanced-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px 22px;
+  box-shadow: 0 8px 22px rgba(70, 65, 140, 0.12);
+  border: 1px solid rgba(90, 80, 180, 0.08);
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.advanced-container .advanced-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(70, 65, 140, 0.18);
+}
+
+
+/* Icons */
+
+.advanced-container .advanced-icon {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+
+/* Card Title */
+
+.advanced-container .advanced-card h3 {
+  margin: 0 0 10px;
+  color: #2d2b55;
+  font-size: 19px;
+}
+
+
+/* Card Description */
+
+.advanced-container .advanced-card p {
+  margin: 0;
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+
+/* Buttons */
+
+.advanced-container .advanced-card button,
+.advanced-explore-button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+
+  margin-top: 20px;
+  padding: 12px 15px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #6a5acd,
+    #4f46c8
+  );
+
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: opacity 0.2s ease;
+}
+
+.advanced-container .advanced-card button:hover,
+.advanced-explore-button:hover {
+  opacity: 0.9;
+}
+
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .advanced-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .advanced-back {
+    margin-top: 20px;
+    padding: 0 16px;
+  }
+
+  .advanced-header {
+    padding: 28px 16px 20px;
+  }
+
+  .advanced-header h1 {
+    font-size: 30px;
+  }
+
+  .advanced-header p {
+    font-size: 15px;
+  }
+
+  .advanced-features {
+    padding: 15px 16px 45px;
+  }
+
+  .advanced-features h2 {
+    font-size: 24px;
+    margin-bottom: 22px;
+  }
+
+  .advanced-container {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .advanced-container .advanced-card {
+    padding: 22px 18px;
+  }
+
+}
