@@ -2987,3 +2987,16 @@ textarea:focus {
 .advanced-card .advanced-button:hover {
   opacity: 0.9;
 }
+.advanced-button {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  text-align: center !important;
+  padding: 11px 14px !important;
+  margin-top: 10px !important;
+  border-radius: 10px !important;
+  background: linear-gradient(135deg, #6a5acd, #4f46c8) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
