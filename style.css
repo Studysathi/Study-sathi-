@@ -2326,3 +2326,432 @@ textarea:focus {
   }
 
 }
+/* ===== Advanced Study Hub ===== */
+
+.advanced-hub-home {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.advanced-hub-content {
+  max-width: 1000px;
+  margin: auto;
+  padding: 25px 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  background: linear-gradient(135deg, #f7f6ff, #eef2ff);
+  border: 1px solid rgba(106, 90, 205, 0.18);
+  border-radius: 18px;
+
+  box-shadow: 0 8px 25px rgba(80, 70, 150, 0.12);
+}
+
+.advanced-hub-icon {
+  font-size: 38px;
+}
+
+.advanced-hub-text {
+  flex: 1;
+}
+
+.advanced-hub-text h2 {
+  margin: 0 0 6px;
+  color: #2d2b55;
+  font-size: 26px;
+}
+
+.advanced-hub-text p {
+  margin: 0;
+  color: #667085;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.advanced-hub-button {
+  display: inline-block;
+  text-decoration: none;
+
+  padding: 12px 22px;
+
+  background: linear-gradient(135deg, #6a5acd, #4f46c8);
+  color: white;
+
+  font-weight: 600;
+  border-radius: 10px;
+
+  transition: 0.25s ease;
+
+  white-space: nowrap;
+}
+
+.advanced-hub-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(79, 70, 200, 0.25);
+}
+
+
+/* Mobile View */
+
+@media (max-width: 700px) {
+
+  .advanced-hub-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 22px 18px;
+  }
+
+  .advanced-hub-icon {
+    font-size: 34px;
+  }
+
+  .advanced-hub-text h2 {
+    font-size: 23px;
+  }
+
+  .advanced-hub-button {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+}
+/* ===== Formula & Quick Revision Library ===== */
+
+.revision-header {
+  text-align: center;
+  padding: 45px 20px 30px;
+  background: linear-gradient(135deg, #f7f6ff, #eef2ff);
+}
+
+.revision-header h1 {
+  margin: 20px 0 10px;
+  color: #2d2b55;
+  font-size: 32px;
+}
+
+.revision-header p {
+  max-width: 650px;
+  margin: auto;
+  color: #667085;
+  line-height: 1.6;
+}
+
+.back-home {
+  display: inline-block;
+  text-decoration: none;
+  color: #6a5acd;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.revision-search-section {
+  padding: 25px 20px;
+  text-align: center;
+}
+
+#revisionSearch {
+  width: min(600px, 100%);
+  padding: 14px 16px;
+  border: 1px solid #d0d5dd;
+  border-radius: 12px;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+#revisionSearch:focus {
+  border-color: #6a5acd;
+  box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.12);
+}
+
+.revision-library {
+  padding: 25px 20px 50px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.revision-library > h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2d2b55;
+}
+
+.revision-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.revision-card {
+  background: white;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  padding: 25px 20px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+  transition: 0.25s ease;
+}
+
+.revision-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(16, 24, 40, 0.10);
+}
+
+.revision-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.revision-card h3 {
+  margin: 0 0 10px;
+  color: #2d2b55;
+}
+
+.revision-card p {
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 64px;
+}
+
+.revision-card button {
+  width: 100%;
+  border: none;
+  padding: 11px 14px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6a5acd, #4f46c8);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.revision-card button:hover {
+  opacity: 0.92;
+}
+
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .revision-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .revision-header {
+    padding: 35px 16px 25px;
+  }
+
+  .revision-header h1 {
+    font-size: 26px;
+  }
+
+  .revision-container {
+    grid-template-columns: 1fr;
+  }
+
+  .revision-card p {
+    min-height: auto;
+  }
+
+}
+/* =====================================
+   FORMULA & QUICK REVISION LIBRARY
+===================================== */
+
+.revision-header {
+  text-align: center;
+  padding: 45px 20px 30px;
+  background: linear-gradient(135deg, #f7f6ff, #eef2ff);
+}
+
+.revision-header h1 {
+  margin: 20px 0 10px;
+  color: #2d2b55;
+  font-size: 32px;
+}
+
+.revision-header p {
+  max-width: 650px;
+  margin: auto;
+  color: #667085;
+  line-height: 1.6;
+}
+
+
+/* Back Button */
+
+.revision-header .back-home {
+  display: inline-block;
+  text-decoration: none;
+  color: #6a5acd;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+
+/* Search Section */
+
+.revision-search-section {
+  padding: 25px 20px;
+  text-align: center;
+}
+
+.revision-search-section #revisionSearch {
+  display: block;
+  width: min(600px, 100%);
+  padding: 14px 16px;
+  margin: 0 auto;
+  border: 1px solid #d0d5dd;
+  border-radius: 12px;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.revision-search-section #revisionSearch:focus {
+  border-color: #6a5acd;
+  box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.12);
+}
+
+
+/* Revision Library */
+
+.revision-library {
+  max-width: 1100px;
+  margin: auto;
+  padding: 25px 20px 50px;
+}
+
+.revision-library > h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2d2b55;
+}
+
+
+/* Cards Grid */
+
+.revision-library .revision-container {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 22px !important;
+  width: 100%;
+}
+
+
+/* Individual Card */
+
+.revision-library .revision-card {
+  display: block !important;
+  background: #ffffff !important;
+  border: 1px solid #e4e7ec !important;
+  border-radius: 16px !important;
+  padding: 25px 20px !important;
+  text-align: center !important;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06) !important;
+  box-sizing: border-box;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.revision-library .revision-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(16, 24, 40, 0.12) !important;
+}
+
+
+/* Icon */
+
+.revision-library .revision-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+
+/* Heading */
+
+.revision-library .revision-card h3 {
+  margin: 0 0 10px !important;
+  color: #2d2b55 !important;
+}
+
+
+/* Description */
+
+.revision-library .revision-card p {
+  color: #667085 !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  min-height: 64px;
+}
+
+
+/* Buttons */
+
+.revision-library .revision-card button {
+  display: block;
+  width: 100% !important;
+  border: none !important;
+  padding: 11px 14px !important;
+  margin-top: 10px !important;
+  border-radius: 10px !important;
+  background: linear-gradient(135deg, #6a5acd, #4f46c8) !important;
+  color: white !important;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.revision-library .revision-card button:hover {
+  opacity: 0.9;
+}
+
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .revision-library .revision-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .revision-header {
+    padding: 35px 16px 25px;
+  }
+
+  .revision-header h1 {
+    font-size: 26px;
+  }
+
+  .revision-library {
+    padding: 20px 16px 40px;
+  }
+
+  .revision-library .revision-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  .revision-library .revision-card p {
+    min-height: auto;
+  }
+
+}
