@@ -254,87 +254,199 @@ function updateStreak() {
 
 updateStreak();
 
-  // Quick Notes
-  const notesInput = document.getElementById("notesInput");
-  const notesMessage = document.getElementById("notesMessage");
+  // =========================
+// Quick Notes
+// =========================
 
-  // Saved notes automatically load
-  const savedNotes = localStorage.getItem("studySaathiNotes");
-
-  if (savedNotes) {
-    notesInput.value = savedNotes;
-  }
-
-  // Save notes
-  document.getElementById("saveNotes").addEventListener("click", function () {
-    const notes = notesInput.value.trim();
-
-    if (notes === "") {
-      notesMessage.textContent = "Pehle notes likho.";
-      return;
-    }
-
-    localStorage.setItem("studySaathiNotes", notes);
-
-    notesMessage.textContent = "✅ Notes saved successfully!";
-  });
+const notesInput = document.getElementById("notesInput");
+const notesMessage = document.getElementById("notesMessage");
 
 
-  // Study Planner
+// Saved notes automatically load
 
-function savePlans() {
-  const plans = [];
+const savedNotes = localStorage.getItem("studySaathiNotes");
 
-  document.querySelectorAll("#planList li").forEach(function (li) {
-    plans.push(li.dataset.plan);
-  });
-
-  localStorage.setItem("studySaathiPlans", JSON.stringify(plans));
+if (savedNotes) {
+  notesInput.value = savedNotes;
 }
 
 
-function createPlan(planText) {
-  const li = document.createElement("li");
+// Save Notes
 
-  li.dataset.plan = planText;
-  li.textContent = "📚 " + planText;
+document.getElementById("saveNotes").addEventListener("click", function () {
 
-  document.getElementById("planList").appendChild(li);
-}
+  const notes = notesInput.value.trim();
 
-
-function loadPlans() {
-  const savedPlans = JSON.parse(
-    localStorage.getItem("studySaathiPlans") || "[]"
-  );
-
-  savedPlans.forEach(function (plan) {
-    createPlan(plan);
-  });
-}
-
-
-document.getElementById("addPlan").addEventListener("click", function () {
-  const subject = document.getElementById("subjectInput").value.trim();
-  const task = document.getElementById("plannerTask").value.trim();
-
-  if (subject === "" || task === "") {
-    alert("Please enter subject and study task");
+  if (notes === "") {
+    notesMessage.textContent = "Pehle notes likho.";
     return;
   }
 
-  const planText = subject + " — " + task;
+  localStorage.setItem("studySaathiNotes", notes);
 
-  createPlan(planText);
+  notesMessage.textContent = "✅ Notes saved successfully!";
 
-  document.getElementById("subjectInput").value = "";
-  document.getElementById("plannerTask").value = "";
-
-  savePlans();
 });
 
 
+// Remove Notes
+
+const removeNotesButton = document.getElementById("removeNotes");
+
+if (removeNotesButton) {
+
+  removeNotesButton.addEventListener("click", function () {
+
+    localStorage.removeItem("studySaathiNotes");
+
+    notesInput.value = "";
+
+    notesMessage.textContent = "🗑️ Notes removed successfully!";
+
+  });
+
+}
+
+
+// =========================
+// Study Planner
+// =========================
+
+function savePlans() {
+
+  const plans = [];
+
+  document.querySelectorAll("#planList li").forEach(function (li) {
+
+    plans.push(li.dataset.plan);
+
+  });
+
+  localStorage.setItem(
+    "studySaathiPlans",
+    JSON.stringify(plans)
+  );
+
+}
+
+
+// Create Plan
+
+function createPlan(planText) {
+
+  const li = document.createElement("li");
+
+  li.dataset.plan = planText;
+
+
+  const planTextSpan = document.createElement("span");
+
+  planTextSpan.textContent = "📚 " + planText;
+
+
+  const removeButton = document.createElement("button");
+
+  removeButton.textContent = "Remove";
+
+  removeButton.type = "button";
+
+  removeButton.classList.add("remove-plan");
+
+
+  removeButton.addEventListener("click", function () {
+
+    li.remove();
+
+    savePlans();
+
+  });
+
+
+  li.appendChild(planTextSpan);
+
+  li.appendChild(removeButton);
+
+
+  document
+    .getElementById("planList")
+    .appendChild(li);
+
+}
+
+
+// Load Saved Plans
+
+function loadPlans() {
+
+  const savedPlans = JSON.parse(
+
+    localStorage.getItem("studySaathiPlans") || "[]"
+
+  );
+
+
+  savedPlans.forEach(function (plan) {
+
+    createPlan(plan);
+
+  });
+
+}
+
+
+// Add Plan
+
+document
+  .getElementById("addPlan")
+  .addEventListener("click", function () {
+
+    const subject =
+      document
+        .getElementById("subjectInput")
+        .value
+        .trim();
+
+
+    const task =
+      document
+        .getElementById("plannerTask")
+        .value
+        .trim();
+
+
+    if (subject === "" || task === "") {
+
+      alert("Please enter subject and study task");
+
+      return;
+
+    }
+
+
+    const planText =
+      subject + " — " + task;
+
+
+    createPlan(planText);
+
+
+    document
+      .getElementById("subjectInput")
+      .value = "";
+
+
+    document
+      .getElementById("plannerTask")
+      .value = "";
+
+
+    savePlans();
+
+  });
+
+
 loadPlans();
+
 
 
   // CGPA Calculator
