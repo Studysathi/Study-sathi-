@@ -2969,3 +2969,21 @@ textarea:focus {
   }
 
 }
+.advanced-card .advanced-button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 11px 14px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6a5acd, #4f46c8);
+  color: white !important;
+  font-weight: 600;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.advanced-card .advanced-button:hover {
+  opacity: 0.9;
+}
