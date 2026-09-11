@@ -136,13 +136,55 @@
     localStorage.getItem("studySaathiPlans") || "[]"
   );
 
+
+  // Total Tasks
+
   const totalTasks = savedPlans.length;
 
   document.getElementById(
     "dashboardTotalTasks"
   ).textContent = totalTasks;
 
-</script>
+
+  // Completed Tasks
+
+  const completedTasks = savedPlans.filter(function (plan) {
+
+    return typeof plan === "object" && plan.completed === true;
+
+  }).length;
+
+
+  document.getElementById(
+    "dashboardCompletedTasks"
+  ).textContent = completedTasks;
+
+
+  // Today's Progress
+
+  let progress = 0;
+
+
+  if (totalTasks > 0) {
+
+    progress =
+      Math.round(
+        (completedTasks / totalTasks) * 100
+      );
+
+  }
+
+
+  document.getElementById(
+    "dashboardProgress"
+  ).style.width = progress + "%";
+
+
+  document.getElementById(
+    "dashboardProgressText"
+  ).textContent = progress + "%";
+
+      </script>
 </body>
 
 </html>
