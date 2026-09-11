@@ -130,7 +130,19 @@
 
   </section>
 
+<script>
 
+  const savedPlans = JSON.parse(
+    localStorage.getItem("studySaathiPlans") || "[]"
+  );
+
+  const totalTasks = savedPlans.length;
+
+  document.getElementById(
+    "dashboardTotalTasks"
+  ).textContent = totalTasks;
+
+</script>
 </body>
 
 </html>
