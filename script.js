@@ -318,7 +318,10 @@ function savePlans() {
 
   document.querySelectorAll("#planList li").forEach(function (li) {
 
-    plans.push(li.dataset.plan);
+    plans.push({
+      text: li.dataset.plan,
+      completed: li.classList.contains("completed")
+    });
 
   });
 
@@ -332,16 +335,51 @@ function savePlans() {
 
 // Create Plan
 
-function createPlan(planText) {
+function createPlan(planText, completed = false) {
 
   const li = document.createElement("li");
 
   li.dataset.plan = planText;
 
 
+  if (completed) {
+    li.classList.add("completed");
+  }
+
+
   const planTextSpan = document.createElement("span");
 
   planTextSpan.textContent = "📚 " + planText;
+
+
+  const completeButton = document.createElement("button");
+
+  completeButton.textContent =
+    completed ? "Completed ✓" : "Complete ✓";
+
+  completeButton.type = "button";
+
+  completeButton.classList.add("complete-plan");
+
+
+  completeButton.addEventListener("click", function () {
+
+    li.classList.toggle("completed");
+
+
+    const isCompleted =
+      li.classList.contains("completed");
+
+
+    completeButton.textContent =
+      isCompleted
+        ? "Completed ✓"
+        : "Complete ✓";
+
+
+    savePlans();
+
+  });
 
 
   const removeButton = document.createElement("button");
@@ -364,6 +402,8 @@ function createPlan(planText) {
 
   li.appendChild(planTextSpan);
 
+  li.appendChild(completeButton);
+
   li.appendChild(removeButton);
 
 
@@ -379,15 +419,25 @@ function createPlan(planText) {
 function loadPlans() {
 
   const savedPlans = JSON.parse(
-
     localStorage.getItem("studySaathiPlans") || "[]"
-
   );
 
 
   savedPlans.forEach(function (plan) {
 
-    createPlan(plan);
+    // पुराने saved plans के लिए
+    if (typeof plan === "string") {
+
+      createPlan(plan, false);
+
+    } else {
+
+      createPlan(
+        plan.text,
+        plan.completed
+      );
+
+    }
 
   });
 
@@ -446,8 +496,6 @@ document
 
 
 loadPlans();
-
-
 
   // CGPA Calculator
   document.getElementById("createSubjects").addEventListener("click", function () {
