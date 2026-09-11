@@ -3000,3 +3000,385 @@ textarea:focus {
   font-weight: 600 !important;
   text-decoration: none !important;
 }
+/* =========================================
+   SMART STUDY DASHBOARD
+========================================= */
+
+
+/* Back Link */
+
+.dashboard-back {
+  max-width: 1100px;
+  margin: 25px auto 0;
+  padding: 0 20px;
+}
+
+.dashboard-back a {
+  color: #5145a5;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.dashboard-back a:hover {
+  text-decoration: underline;
+}
+
+
+/* Header */
+
+.dashboard-header {
+  text-align: center;
+  padding: 35px 20px 25px;
+}
+
+.dashboard-header-icon {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  color: #29264d;
+  font-size: 38px;
+}
+
+.dashboard-header p {
+  max-width: 600px;
+  margin: 12px auto 0;
+  color: #667085;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+
+/* Dashboard Section */
+
+.dashboard-section {
+  padding: 20px 30px 60px;
+}
+
+
+/* Cards Container */
+
+.dashboard-container {
+  max-width: 1100px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+
+/* Individual Card */
+
+.dashboard-card {
+  background: white;
+  border-radius: 16px;
+  padding: 22px 18px;
+
+  text-align: center;
+
+  box-shadow: 0 8px 22px rgba(70, 65, 140, 0.12);
+  border: 1px solid rgba(90, 80, 180, 0.08);
+}
+
+
+/* Icon */
+
+.dashboard-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+
+/* Card Title */
+
+.dashboard-card h3 {
+  margin: 0 0 10px;
+  color: #2d2b55;
+  font-size: 17px;
+}
+
+
+/* Card Value */
+
+.dashboard-card p {
+  margin: 0;
+  color: #5145a5;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+
+/* Progress Card */
+
+.dashboard-progress-card {
+  grid-column: span 4;
+  text-align: left;
+}
+
+.dashboard-progress-card h3 {
+  text-align: center;
+}
+
+
+/* Progress Bar */
+
+.dashboard-progress-bar {
+  width: 100%;
+  height: 14px;
+
+  background: #e8e8f5;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+
+.dashboard-progress-fill {
+  width: 0%;
+  height: 100%;
+
+  background: linear-gradient(
+    135deg,
+    #6a5acd,
+    #4f46c8
+  );
+
+  border-radius: 20px;
+
+  transition: width 0.4s ease;
+}
+
+
+#dashboardProgressText {
+  text-align: center;
+  margin-top: 12px;
+}
+
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .dashboard-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-progress-card {
+    grid-column: span 2;
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .dashboard-back {
+    margin-top: 20px;
+    padding: 0 16px;
+  }
+
+  .dashboard-header {
+    padding: 28px 16px 20px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 29px;
+  }
+
+  .dashboard-header p {
+    font-size: 15px;
+  }
+
+  .dashboard-section {
+    padding: 15px 16px 45px;
+  }
+
+  .dashboard-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .dashboard-progress-card {
+    grid-column: span 1;
+  }
+
+}
+/* =========================================
+   SMART STUDY DASHBOARD
+========================================= */
+
+/* Back Link */
+
+.dashboard-back {
+  max-width: 1100px;
+  margin: 25px auto 0;
+  padding: 0 20px;
+}
+
+.dashboard-back a {
+  color: #5145a5;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+
+/* Header */
+
+.dashboard-header {
+  text-align: center;
+  padding: 35px 20px 25px;
+}
+
+.dashboard-header-icon {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  color: #29264d;
+  font-size: 38px;
+}
+
+.dashboard-header p {
+  max-width: 600px;
+  margin: 12px auto 0;
+  color: #667085;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+
+/* Dashboard Cards */
+
+.dashboard-section {
+  padding: 20px 30px 60px;
+}
+
+.dashboard-container {
+  max-width: 1100px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: 16px;
+  padding: 22px 18px;
+  text-align: center;
+
+  box-shadow: 0 8px 22px rgba(70, 65, 140, 0.12);
+  border: 1px solid rgba(90, 80, 180, 0.08);
+}
+
+.dashboard-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.dashboard-card h3 {
+  margin: 0 0 10px;
+  color: #2d2b55;
+  font-size: 17px;
+}
+
+.dashboard-card p {
+  margin: 0;
+  color: #5145a5;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+
+/* Progress */
+
+.dashboard-progress-card {
+  grid-column: span 4;
+  text-align: left;
+}
+
+.dashboard-progress-card h3 {
+  text-align: center;
+}
+
+.dashboard-progress-bar {
+  width: 100%;
+  height: 14px;
+  background: #e8e8f5;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.dashboard-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(135deg, #6a5acd, #4f46c8);
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+#dashboardProgressText {
+  text-align: center;
+  margin-top: 12px;
+}
+
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .dashboard-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-progress-card {
+    grid-column: span 2;
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .dashboard-back {
+    margin-top: 20px;
+    padding: 0 16px;
+  }
+
+  .dashboard-header {
+    padding: 28px 16px 20px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 29px;
+  }
+
+  .dashboard-header p {
+    font-size: 15px;
+  }
+
+  .dashboard-section {
+    padding: 15px 16px 45px;
+  }
+
+  .dashboard-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .dashboard-progress-card {
+    grid-column: span 1;
+  }
+
+}
