@@ -129,35 +129,73 @@
     </div>
 
   </section>
-
 <script>
 
-  const savedPlans = JSON.parse(
-    localStorage.getItem("studySaathiPlans") || "[]"
-  );
+  // =========================
+  // Today's Study Time
+  // =========================
+
+  const today =
+    new Date().toISOString().split("T")[0];
+
+
+  const savedStudyData =
+    JSON.parse(
+      localStorage.getItem("studySaathiStudyTime")
+      || "{}"
+    );
+
+
+  const todayStudyTime =
+    savedStudyData[today] || 0;
+
+
+  document.getElementById(
+    "dashboardStudyTime"
+  ).textContent =
+    todayStudyTime + " minutes";
+
+
+  // =========================
+  // Study Planner Data
+  // =========================
+
+  const savedPlans =
+    JSON.parse(
+      localStorage.getItem("studySaathiPlans")
+      || "[]"
+    );
 
 
   // Total Tasks
 
-  const totalTasks = savedPlans.length;
+  const totalTasks =
+    savedPlans.length;
+
 
   document.getElementById(
     "dashboardTotalTasks"
-  ).textContent = totalTasks;
+  ).textContent =
+    totalTasks;
 
 
   // Completed Tasks
 
-  const completedTasks = savedPlans.filter(function (plan) {
+  const completedTasks =
+    savedPlans.filter(function (plan) {
 
-    return typeof plan === "object" && plan.completed === true;
+      return (
+        typeof plan === "object" &&
+        plan.completed === true
+      );
 
-  }).length;
+    }).length;
 
 
   document.getElementById(
     "dashboardCompletedTasks"
-  ).textContent = completedTasks;
+  ).textContent =
+    completedTasks;
 
 
   // Today's Progress
@@ -177,14 +215,17 @@
 
   document.getElementById(
     "dashboardProgress"
-  ).style.width = progress + "%";
+  ).style.width =
+    progress + "%";
 
 
   document.getElementById(
     "dashboardProgressText"
-  ).textContent = progress + "%";
+  ).textContent =
+    progress + "%";
 
-      </script>
+</script>
+
 </body>
 
 </html>
