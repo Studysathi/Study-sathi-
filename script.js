@@ -22,12 +22,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  // Study Timer
-  let timer;
-  let timeLeft = 0;
+// Study Timer
 
-  document.getElementById("startTimer").addEventListener("click", function () {
-    const minutes = Number(document.getElementById("minutes").value);
+let timer;
+let timeLeft = 0;
+let originalStudyTime = 0;
+
+document
+  .getElementById("startTimer")
+  .addEventListener("click", function () {
+
+    const minutes = Number(
+      document.getElementById("minutes").value
+    );
 
     if (minutes <= 0) {
       alert("Please enter minutes");
@@ -35,38 +42,85 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     timeLeft = minutes * 60;
+    originalStudyTime = minutes;
+
     clearInterval(timer);
 
     timer = setInterval(function () {
+
       let min = Math.floor(timeLeft / 60);
       let sec = timeLeft % 60;
 
       document.getElementById("timerDisplay").innerText =
-        String(min).padStart(2, "0") + ":" +
+        String(min).padStart(2, "0") +
+        ":" +
         String(sec).padStart(2, "0");
 
       if (timeLeft <= 0) {
+
         clearInterval(timer);
+
+        // Save completed study time
+        const today =
+          new Date().toISOString().split("T")[0];
+
+        const savedStudyData =
+          JSON.parse(
+            localStorage.getItem("studySaathiStudyTime") || "{}"
+          );
+
+        savedStudyData[today] =
+          (Number(savedStudyData[today]) || 0) +
+          originalStudyTime;
+
+        localStorage.setItem(
+          "studySaathiStudyTime",
+          JSON.stringify(savedStudyData)
+        );
+
+        // Reset timer values
+        timeLeft = 0;
+        originalStudyTime = 0;
+
+        document.getElementById(
+          "timerDisplay"
+        ).innerText = "00:00";
+
         alert("Study Time Complete! 🎉");
+
         return;
       }
 
       timeLeft--;
+
     }, 1000);
   });
 
-  document.getElementById("pauseTimer").addEventListener("click", function () {
+
+document
+  .getElementById("pauseTimer")
+  .addEventListener("click", function () {
     clearInterval(timer);
   });
 
-  document.getElementById("resetTimer").addEventListener("click", function () {
+
+document
+  .getElementById("resetTimer")
+  .addEventListener("click", function () {
+
     clearInterval(timer);
+
     timeLeft = 0;
+    originalStudyTime = 0;
 
-    document.getElementById("timerDisplay").innerText = "00:00";
-    document.getElementById("minutes").value = "";
+    document.getElementById(
+      "timerDisplay"
+    ).innerText = "00:00";
+
+    document.getElementById(
+      "minutes"
+    ).value = "";
   });
-
 
   // Exam Countdown
   document.getElementById("countdownBtn").addEventListener("click", function () {
