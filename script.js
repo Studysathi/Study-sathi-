@@ -85,7 +85,9 @@ document
         document.getElementById(
           "timerDisplay"
         ).innerText = "00:00";
-
+        
+updateStreak();
+        
         alert("Study Time Complete! 🎉");
 
         return;
@@ -276,37 +278,60 @@ loadTasks();
 // Study Streak
 
 function updateStreak() {
+
   const today = new Date().toDateString();
 
-  const lastStudyDate = localStorage.getItem("studySaathiLastStudy");
-  let streak = Number(localStorage.getItem("studySaathiStreak")) || 0;
+  const lastStudyDate =
+    localStorage.getItem("studySaathiLastStudy");
+
+  let streak =
+    Number(localStorage.getItem("studySaathiStreak")) || 0;
 
   if (lastStudyDate === today) {
     // Aaj ka streak already count ho chuka hai
   } else {
+
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
 
-    if (lastStudyDate === yesterday.toDateString()) {
+    if (
+      lastStudyDate === yesterday.toDateString()
+    ) {
       streak++;
     } else {
       streak = 1;
     }
 
-    localStorage.setItem("studySaathiStreak", streak);
-    localStorage.setItem("studySaathiLastStudy", today);
+    localStorage.setItem(
+      "studySaathiStreak",
+      streak
+    );
+
+    localStorage.setItem(
+      "studySaathiLastStudy",
+      today
+    );
   }
 
-  document.getElementById("streakCount").textContent =
-    streak + (streak === 1 ? " Day" : " Days");
+  const streakCount =
+    document.getElementById("streakCount");
 
-  document.getElementById("streakMessage").textContent =
-    streak > 1
-      ? "Great! Keep studying 🔥"
-      : "Aaj padhai shuru karo! 📚";
+  const streakMessage =
+    document.getElementById("streakMessage");
+
+  if (streakCount) {
+    streakCount.textContent =
+      streak +
+      (streak === 1 ? " Day" : " Days");
+  }
+
+  if (streakMessage) {
+    streakMessage.textContent =
+      streak > 1
+        ? "Great! Keep studying 🔥"
+        : "Aaj padhai shuru karo! 📚";
+  }
 }
-
-updateStreak();
 
   // =========================
 // Quick Notes
