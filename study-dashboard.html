@@ -223,7 +223,20 @@
     "dashboardProgressText"
   ).textContent =
     progress + "%";
+// =========================
+// Study Streak
+// =========================
 
+const savedStreak =
+  Number(
+    localStorage.getItem("studySaathiStreak")
+  ) || 0;
+
+document.getElementById(
+  "dashboardStreak"
+).textContent =
+  savedStreak +
+  (savedStreak === 1 ? " day" : " days");
 </script>
 
 </body>
