@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Study Goal Tracker | StudySaathi</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="dashboard-back">
+    <a href="advanced-study.html">← Back to Advanced Study Hub</a>
+  </div>
+
+  <header class="dashboard-header">
+    <div class="dashboard-header-icon">🎯</div>
+
+    <h1>Study Goal Tracker</h1>
+
+    <p>
+      Set your study goals and track your achievements.
+    </p>
+  </header>
+
+  <section class="dashboard-section">
+
+    <div class="dashboard-container">
+
+      <div class="dashboard-card">
+
+        <div class="dashboard-icon">🎯</div>
+
+        <h3>Set Your Goal</h3>
+
+        <input
+          type="text"
+          id="goalInput"
+          placeholder="Enter your study goal"
+        >
+
+        <button type="button" id="addGoal">
+          Add Goal
+        </button>
+
+      </div>
+
+      <div class="dashboard-card">
+
+        <div class="dashboard-icon">📋</div>
+
+        <h3>My Study Goals</h3>
+
+        <ul id="goalList"></ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <script>
+
+    const goalInput =
+      document.getElementById("goalInput");
+
+    const addGoal =
+      document.getElementById("addGoal");
+
+    const goalList =
+      document.getElementById("goalList");
+
+
+    function saveGoals() {
+
+      const goals = [];
+
+      document
+        .querySelectorAll("#goalList li")
+        .forEach(function (li) {
+
+          goals.push({
+            text: li.dataset.goal,
+            completed:
+              li.classList.contains("completed")
+          });
+
+        });
+
+      localStorage.setItem(
+        "studySaathiGoals",
+        JSON.stringify(goals)
+      );
+    }
+
+
+    function createGoal(goalText, completed = false) {
+
+      const li =
+        document.createElement("li");
+
+      li.dataset.goal = goalText;
+
+      if (completed) {
+        li.classList.add("completed");
+      }
+
+
+      const goalName =
+        document.createElement("span");
+
+      goalName.textContent =
+        "🎯 " + goalText;
+
+
+      const completeButton =
+        document.createElement("button");
+
+      completeButton.textContent =
+        completed
+          ? "Completed ✓"
+          : "Complete ✓";
+
+      completeButton.type = "button";
+
+
+      completeButton.addEventListener(
+        "click",
+        function () {
+
+          li.classList.toggle("completed");
+
+          completeButton.textContent =
+            li.classList.contains("completed")
+              ? "Completed ✓"
+              : "Complete ✓";
+
+          saveGoals();
+
+        }
+      );
+
+
+      const deleteButton =
+        document.createElement("button");
+
+      deleteButton.textContent =
+        "Delete";
+
+      deleteButton.type = "button";
+
+
+      deleteButton.addEventListener(
+        "click",
+        function () {
+
+          li.remove();
+
+          saveGoals();
+
+        }
+      );
+
+
+      li.appendChild(goalName);
+
+      li.appendChild(completeButton);
+
+      li.appendChild(deleteButton);
+
+      goalList.appendChild(li);
+
+    }
+
+
+    addGoal.addEventListener(
+      "click",
+      function () {
+
+        const goal =
+          goalInput.value.trim();
+
+        if (goal === "") {
+
+          alert("Please enter a study goal");
+
+          return;
+        }
+
+        createGoal(goal);
+
+        goalInput.value = "";
+
+        saveGoals();
+
+      }
+    );
+
+
+    function loadGoals() {
+
+      const savedGoals =
+        JSON.parse(
+          localStorage.getItem(
+            "studySaathiGoals"
+          ) || "[]"
+        );
+
+
+      savedGoals.forEach(
+        function (goal) {
+
+          createGoal(
+            goal.text,
+            goal.completed
+          );
+
+        }
+      );
+
+    }
+
+
+    loadGoals();
+
+  </script>
+
+</body>
+
+</html>
