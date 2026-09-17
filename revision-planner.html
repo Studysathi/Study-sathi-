@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Smart Revision Planner | StudySaathi</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="dashboard-back">
+    <a href="advanced-study.html">← Back to Advanced Study Hub</a>
+  </div>
+
+  <header class="dashboard-header">
+    <div class="dashboard-header-icon">🔄</div>
+
+    <h1>Smart Revision Planner</h1>
+
+    <p>
+      Plan your revision schedule and keep track of your study topics.
+    </p>
+  </header>
+
+  <section class="dashboard-section">
+
+    <div class="dashboard-container">
+
+      <div class="dashboard-card">
+
+        <div class="dashboard-icon">📚</div>
+
+        <h3>Add Revision Topic</h3>
+
+        <input
+          type="text"
+          id="revisionInput"
+          placeholder="Enter topic to revise"
+        >
+
+        <button type="button" id="addRevision">
+          Add Topic
+        </button>
+
+      </div>
+
+
+      <div class="dashboard-card">
+
+        <div class="dashboard-icon">📋</div>
+
+        <h3>My Revision List</h3>
+
+        <ul id="revisionList"></ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <script>
+
+    const revisionInput =
+      document.getElementById("revisionInput");
+
+    const addRevision =
+      document.getElementById("addRevision");
+
+    const revisionList =
+      document.getElementById("revisionList");
+
+
+    function saveRevisions() {
+
+      const revisions = [];
+
+      document
+        .querySelectorAll("#revisionList li")
+        .forEach(function (li) {
+
+          revisions.push({
+            text: li.dataset.revision,
+            completed:
+              li.classList.contains("completed")
+          });
+
+        });
+
+      localStorage.setItem(
+        "studySaathiRevisions",
+        JSON.stringify(revisions)
+      );
+    }
+
+
+    function createRevision(
+      revisionText,
+      completed = false
+    ) {
+
+      const li =
+        document.createElement("li");
+
+      li.dataset.revision =
+        revisionText;
+
+
+      if (completed) {
+        li.classList.add("completed");
+      }
+
+
+      const topicName =
+        document.createElement("span");
+
+      topicName.textContent =
+        "📚 " + revisionText;
+
+
+      const completeButton =
+        document.createElement("button");
+
+      completeButton.textContent =
+        completed
+          ? "Revised ✓"
+          : "Mark Revised";
+
+      completeButton.type = "button";
+
+
+      completeButton.addEventListener(
+        "click",
+        function () {
+
+          li.classList.toggle("completed");
+
+          completeButton.textContent =
+            li.classList.contains("completed")
+              ? "Revised ✓"
+              : "Mark Revised";
+
+          saveRevisions();
+
+        }
+      );
+
+
+      const deleteButton =
+        document.createElement("button");
+
+      deleteButton.textContent =
+        "Delete";
+
+      deleteButton.type = "button";
+
+
+      deleteButton.addEventListener(
+        "click",
+        function () {
+
+          li.remove();
+
+          saveRevisions();
+
+        }
+      );
+
+
+      li.appendChild(topicName);
+
+      li.appendChild(completeButton);
+
+      li.appendChild(deleteButton);
+
+      revisionList.appendChild(li);
+
+    }
+
+
+    addRevision.addEventListener(
+      "click",
+      function () {
+
+        const topic =
+          revisionInput.value.trim();
+
+
+        if (topic === "") {
+
+          alert("Please enter a revision topic");
+
+          return;
+
+        }
+
+
+        createRevision(topic);
+
+        revisionInput.value = "";
+
+        saveRevisions();
+
+      }
+    );
+
+
+    function loadRevisions() {
+
+      const savedRevisions =
+        JSON.parse(
+          localStorage.getItem(
+            "studySaathiRevisions"
+          ) || "[]"
+        );
+
+
+      savedRevisions.forEach(
+        function (revision) {
+
+          createRevision(
+            revision.text,
+            revision.completed
+          );
+
+        }
+      );
+
+    }
+
+
+    loadRevisions();
+
+  </script>
+
+</body>
+
+</html>
