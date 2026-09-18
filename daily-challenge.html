@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Daily Study Challenge | StudySaathi</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="dashboard-back">
+    <a href="advanced-study.html">← Back to Advanced Study Hub</a>
+  </div>
+
+  <header class="dashboard-header">
+    <div class="dashboard-header-icon">🏆</div>
+
+    <h1>Daily Study Challenge</h1>
+
+    <p>
+      Complete today's challenge and keep your study motivation going.
+    </p>
+  </header>
+
+
+  <section class="dashboard-section">
+
+    <div class="dashboard-container">
+
+      <div class="dashboard-card">
+
+        <div class="dashboard-icon">📚</div>
+
+        <h3>Today's Challenge</h3>
+
+        <p id="challengeText">
+          Study for 30 minutes today.
+        </p>
+
+        <button type="button" id="completeChallenge">
+          Complete Challenge ✓
+        </button>
+
+        <p id="challengeMessage"></p>
+
+      </div>
+
+
+      <div class="dashboard-card">
+
+        <div class="dashboard-icon">🏆</div>
+
+        <h3>Challenges Completed</h3>
+
+        <p id="challengeCount">0</p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <script>
+
+    const completeChallenge =
+      document.getElementById("completeChallenge");
+
+    const challengeMessage =
+      document.getElementById("challengeMessage");
+
+    const challengeCount =
+      document.getElementById("challengeCount");
+
+
+    let completed =
+      Number(
+        localStorage.getItem(
+          "studySaathiChallengeCount"
+        )
+      ) || 0;
+
+
+    const completedToday =
+      localStorage.getItem(
+        "studySaathiChallengeToday"
+      );
+
+
+    const today =
+      new Date().toISOString().split("T")[0];
+
+
+    challengeCount.textContent =
+      completed;
+
+
+    if (completedToday === today) {
+
+      completeChallenge.textContent =
+        "Completed ✓";
+
+      challengeMessage.textContent =
+        "Great job! Today's challenge is complete. 🔥";
+
+      completeChallenge.disabled = true;
+
+    }
+
+
+    completeChallenge.addEventListener(
+      "click",
+      function () {
+
+        const currentToday =
+          new Date().toISOString().split("T")[0];
+
+
+        const alreadyCompleted =
+          localStorage.getItem(
+            "studySaathiChallengeToday"
+          );
+
+
+        if (alreadyCompleted === currentToday) {
+          return;
+        }
+
+
+        completed++;
+
+
+        localStorage.setItem(
+          "studySaathiChallengeCount",
+          completed
+        );
+
+
+        localStorage.setItem(
+          "studySaathiChallengeToday",
+          currentToday
+        );
+
+
+        challengeCount.textContent =
+          completed;
+
+
+        completeChallenge.textContent =
+          "Completed ✓";
+
+
+        challengeMessage.textContent =
+          "Great job! Challenge completed today. 🔥";
+
+
+        completeChallenge.disabled =
+          true;
+
+      }
+    );
+
+  </script>
+
+</body>
+
+</html>
