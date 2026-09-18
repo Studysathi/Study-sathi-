@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Practice Quiz | StudySaathi</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="dashboard-back">
+    <a href="advanced-study.html">← Back to Advanced Study Hub</a>
+  </div>
+
+  <header class="dashboard-header">
+    <div class="dashboard-header-icon">🧠</div>
+
+    <h1>Practice Quiz</h1>
+
+    <p>
+      Test your knowledge with quick study questions.
+    </p>
+  </header>
+
+
+  <section class="dashboard-section">
+
+    <div class="dashboard-container">
+
+      <div class="dashboard-card quiz-card">
+
+        <h3 id="questionText">
+          Question will appear here
+        </h3>
+
+        <div id="quizOptions"></div>
+
+        <button type="button" id="nextQuestion">
+          Next Question →
+        </button>
+
+        <p id="quizResult"></p>
+
+      </div>
+
+
+      <div class="dashboard-card">
+
+        <div class="dashboard-icon">🏆</div>
+
+        <h3>Your Score</h3>
+
+        <p id="quizScore">0 / 5</p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <script>
+
+    const questions = [
+
+      {
+        question: "Which planet is known as the Red Planet?",
+        options: [
+          "Earth",
+          "Mars",
+          "Jupiter",
+          "Venus"
+        ],
+        answer: "Mars"
+      },
+
+      {
+        question: "What is 12 × 5?",
+        options: [
+          "50",
+          "55",
+          "60",
+          "65"
+        ],
+        answer: "60"
+      },
+
+      {
+        question: "Which gas do plants mainly use for photosynthesis?",
+        options: [
+          "Oxygen",
+          "Nitrogen",
+          "Carbon dioxide",
+          "Hydrogen"
+        ],
+        answer: "Carbon dioxide"
+      },
+
+      {
+        question: "What is the SI unit of force?",
+        options: [
+          "Joule",
+          "Watt",
+          "Newton",
+          "Pascal"
+        ],
+        answer: "Newton"
+      },
+
+      {
+        question: "How many sides does a triangle have?",
+        options: [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        answer: "3"
+      }
+
+    ];
+
+
+    let currentQuestion = 0;
+    let score = 0;
+    let answered = false;
+
+
+    const questionText =
+      document.getElementById("questionText");
+
+    const quizOptions =
+      document.getElementById("quizOptions");
+
+    const nextQuestion =
+      document.getElementById("nextQuestion");
+
+    const quizResult =
+      document.getElementById("quizResult");
+
+    const quizScore =
+      document.getElementById("quizScore");
+
+
+    function showQuestion() {
+
+      answered = false;
+
+      const question =
+        questions[currentQuestion];
+
+      questionText.textContent =
+        question.question;
+
+      quizOptions.innerHTML = "";
+
+      quizResult.textContent = "";
+
+      question.options.forEach(
+        function (option) {
+
+          const button =
+            document.createElement("button");
+
+          button.textContent =
+            option;
+
+          button.type = "button";
+
+          button.addEventListener(
+            "click",
+            function () {
+
+              if (answered) {
+                return;
+              }
+
+              answered = true;
+
+              if (option === question.answer) {
+
+                score++;
+
+                quizResult.textContent =
+                  "✅ Correct!";
+
+              } else {
+
+                quizResult.textContent =
+                  "❌ Correct answer: " +
+                  question.answer;
+
+              }
+
+              quizScore.textContent =
+                score + " / 5";
+
+              document
+                .querySelectorAll(
+                  "#quizOptions button"
+                )
+                .forEach(
+                  function (btn) {
+                    btn.disabled = true;
+                  }
+                );
+
+            }
+          );
+
+          quizOptions.appendChild(button);
+
+        }
+      );
+
+    }
+
+
+    nextQuestion.addEventListener(
+      "click",
+      function () {
+
+        if (currentQuestion <
+            questions.length - 1) {
+
+          currentQuestion++;
+
+          showQuestion();
+
+        } else {
+
+          questionText.textContent =
+            "🎉 Quiz Completed!";
+
+          quizOptions.innerHTML = "";
+
+          nextQuestion.textContent =
+            "Restart Quiz";
+
+          quizResult.textContent =
+            "Your final score: " +
+            score + " / 5";
+
+          nextQuestion.onclick =
+            function () {
+
+              currentQuestion = 0;
+
+              score = 0;
+
+              quizScore.textContent =
+                "0 / 5";
+
+              nextQuestion.textContent =
+                "Next Question →";
+
+              nextQuestion.onclick = null;
+
+              showQuestion();
+
+            };
+
+        }
+
+      }
+    );
+
+
+    showQuestion();
+
+  </script>
+
+</body>
+
+</html>
