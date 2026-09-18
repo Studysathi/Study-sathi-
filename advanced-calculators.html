@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Advanced Calculators | StudySaathi</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="dashboard-back">
+    <a href="advanced-study.html">← Back to Advanced Study Hub</a>
+  </div>
+
+  <header class="dashboard-header">
+    <div class="dashboard-header-icon">🧮</div>
+
+    <h1>Advanced Calculators</h1>
+
+    <p>
+      Useful calculators for your academic needs.
+    </p>
+  </header>
+
+
+  <section class="dashboard-section">
+
+    <div class="dashboard-container">
+
+      <!-- Average Calculator -->
+      <div class="dashboard-card">
+
+        <div class="dashboard-icon">📊</div>
+
+        <h3>Average Calculator</h3>
+
+        <input
+          type="text"
+          id="averageInput"
+          placeholder="Enter numbers e.g. 10,20,30"
+        >
+
+        <button type="button" id="averageButton">
+          Calculate Average
+        </button>
+
+        <p id="averageResult"></p>
+
+      </div>
+
+
+      <!-- Percentage Increase Calculator -->
+      <div class="dashboard-card">
+
+        <div class="dashboard-icon">📈</div>
+
+        <h3>Percentage Increase</h3>
+
+        <input
+          type="number"
+          id="oldValue"
+          placeholder="Old value"
+        >
+
+        <input
+          type="number"
+          id="newValue"
+          placeholder="New value"
+        >
+
+        <button type="button" id="increaseButton">
+          Calculate
+        </button>
+
+        <p id="increaseResult"></p>
+
+      </div>
+
+
+      <!-- Percentage Decrease Calculator -->
+      <div class="dashboard-card">
+
+        <div class="dashboard-icon">📉</div>
+
+        <h3>Percentage Decrease</h3>
+
+        <input
+          type="number"
+          id="decreaseOld"
+          placeholder="Original value"
+        >
+
+        <input
+          type="number"
+          id="decreaseNew"
+          placeholder="New value"
+        >
+
+        <button type="button" id="decreaseButton">
+          Calculate
+        </button>
+
+        <p id="decreaseResult"></p>
+
+      </div>
+
+
+      <!-- Ratio Calculator -->
+      <div class="dashboard-card">
+
+        <div class="dashboard-icon">⚖️</div>
+
+        <h3>Ratio Simplifier</h3>
+
+        <input
+          type="number"
+          id="ratioA"
+          placeholder="First number"
+        >
+
+        <input
+          type="number"
+          id="ratioB"
+          placeholder="Second number"
+        >
+
+        <button type="button" id="ratioButton">
+          Simplify Ratio
+        </button>
+
+        <p id="ratioResult"></p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <script>
+
+    // Average Calculator
+
+    document
+      .getElementById("averageButton")
+      .addEventListener("click", function () {
+
+        const input =
+          document.getElementById("averageInput").value;
+
+        const numbers =
+          input
+            .split(",")
+            .map(Number)
+            .filter(function (number) {
+              return !isNaN(number);
+            });
+
+        if (numbers.length === 0) {
+          document.getElementById("averageResult").textContent =
+            "Please enter valid numbers.";
+          return;
+        }
+
+        const total =
+          numbers.reduce(function (sum, number) {
+            return sum + number;
+          }, 0);
+
+        const average =
+          total / numbers.length;
+
+        document.getElementById("averageResult").textContent =
+          "Average: " + average.toFixed(2);
+
+      });
+
+
+    // Percentage Increase
+
+    document
+      .getElementById("increaseButton")
+      .addEventListener("click", function () {
+
+        const oldValue =
+          Number(document.getElementById("oldValue").value);
+
+        const newValue =
+          Number(document.getElementById("newValue").value);
+
+        if (oldValue <= 0) {
+          document.getElementById("increaseResult").textContent =
+            "Please enter a valid old value.";
+          return;
+        }
+
+        const increase =
+          ((newValue - oldValue) / oldValue) * 100;
+
+        document.getElementById("increaseResult").textContent =
+          "Percentage Change: " +
+          increase.toFixed(2) +
+          "%";
+
+      });
+
+
+    // Percentage Decrease
+
+    document
+      .getElementById("decreaseButton")
+      .addEventListener("click", function () {
+
+        const oldValue =
+          Number(document.getElementById("decreaseOld").value);
+
+        const newValue =
+          Number(document.getElementById("decreaseNew").value);
+
+        if (oldValue <= 0) {
+          document.getElementById("decreaseResult").textContent =
+            "Please enter a valid original value.";
+          return;
+        }
+
+        const decrease =
+          ((oldValue - newValue) / oldValue) * 100;
+
+        document.getElementById("decreaseResult").textContent =
+          "Percentage Change: " +
+          decrease.toFixed(2) +
+          "%";
+
+      });
+
+
+    // Ratio Simplifier
+
+    document
+      .getElementById("ratioButton")
+      .addEventListener("click", function () {
+
+        const a =
+          Number(document.getElementById("ratioA").value);
+
+        const b =
+          Number(document.getElementById("ratioB").value);
+
+        if (a <= 0 || b <= 0) {
+          document.getElementById("ratioResult").textContent =
+            "Please enter positive numbers.";
+          return;
+        }
+
+        function gcd(x, y) {
+          while (y !== 0) {
+            const temp = y;
+            y = x % y;
+            x = temp;
+          }
+          return x;
+        }
+
+        const divisor =
+          gcd(a, b);
+
+        document.getElementById("ratioResult").textContent =
+          "Simplified Ratio: " +
+          (a / divisor) +
+          " : " +
+          (b / divisor);
+
+      });
+
+  </script>
+
+</body>
+
+</html>
